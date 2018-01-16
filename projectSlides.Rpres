@@ -1,0 +1,58 @@
+Cousera Capstone Project
+========================================================
+author: V Sunder Raman
+date: 15 January 2018
+
+INTRODUCTION
+
+This presentation is about the Swiftkey Capstone Project, which is part of the Data Source Specialization course from Coursera.
+
+The application is intended to take a string of words and predict the next word, based on the probability of occurence
+
+Shiny has been used to create a simple Web application that takes the phrase as input and predicts the next word.
+
+The basis for the prediction of the word are a set of three files (blogs, news and tweets) which has been obtained from [{here}] (https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip). 
+
+Cleaning the Corpus
+=========================================================
+
+The corpus documents arelarge in size and contained some noise, so they needed to be cleaned and compressed.
+
+Compression
+
+To reduce the size of the corpus, the text lines were randomly sampled using a binomial distribution and 10% of the lines were utilized. That greatly increased processing speed.
+
+Cleaning
+
+* The words were converted into lower case
+* All punctuations, URL, special characters,numbers, leading and trailing whitespaces & profanity words were removed, as they are largely irrelevant for the desired outcome.
+
+
+Analyzing the Corpus
+===========================================================
+The sentences in the corpus was split into individual words combinations. Three datasets were created that way:
+
+Bigrams (Two word sets)
+Trigrams (Three word sets)
+QuadGrams(Four Word sets)
+PentGrams(Five Word sets)
+
+For each of the above, frequencies of occurence of each set were calculated. These were later converted into probabilities of occurence, which are directly used in the application for the next word prediction.
+
+
+How to Use the Application
+========================================================
+- When an user inputs the text, up to last 4 words will be used to predict the next word, accroding to the frequencies of the underlying *N-Grams*. 
+<img src= "images/SwiftKey.png">
+- While entering the text, the predicted next word will be shown instantaneously.
+- And how many words and characters the user just has entered will be displayed too.
+
+NOTES
+========================================================
+
+Following reference has been used
+  - Nature Language Processing - About N-Gram
+  [{Daniel Jurafsky & James H. Martin}](https://lagunita.stanford.edu/c4x/Engineering/CS-224N/asset/slp4.pdf)
+
+My project on github
+  - The scripts related to this shiny application,can be found in [{this GitHub repository}](https://github.com/SunderRaman/CapstoneProject).
